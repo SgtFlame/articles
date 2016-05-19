@@ -1,14 +1,17 @@
 # Notes on making a Linux Distro
 
+In addition to the links I've provided here, [Linux from Scratch](http://www.linuxfromscratch.org/index.html) is also a great resource for creating your own system.  LFS focuses on building everything from source, which is a great way to do it.  My instructions don't build everything from scratch.
+
 ## Tools
 
 First, you have to make sure LXC is installed.
-
 ```
 sudo apt install lxc
 ```
 
-LXC is a Linux container system that will allow us to create a specialized environment for creating our Linux distro (including building our own custom kernel, etc) without having to worry about messing up our existing kernel.
+LXC is a Linux container system that will allow us to create a specialized environment for creating our Linux distro (including building our own custom kernel, etc) without having to worry about messing up our existing installed operating system / kernel.
+
+You don't **have** to create a container, but I highly suggest it.  It makes things a lot easier in the long run.
 
 ## Setup the Boot Creation Container
 
@@ -46,14 +49,18 @@ cp /home/trichards/Downloads/syslinux-4.04.tar.gz
 tar -xvf syslinux-4.04.tar.gz
 ```
 
+Update your boot container with software required for the rest of this install.
+```
+apt update
+apt upgrade
+apt install make gcc libncurses5-dev libelf-dev bc busybox grub mkisofs
+```
+
 From your boot container, make the kernel.
 
 ```
 root@boot
 cd /root/linux-4.5.3
-apt update
-apt upgrade
-apt install make gcc libncurses5-dev libelf-dev bc
 make menuconfig
 make bzImage
 ```
@@ -85,9 +92,10 @@ label aethos
   append initrd=/boot/initrd.img
 ```
 
-
 Create the initial file system that will reside on a ram disk.
 [More background here.](http://www.thewireframecommunity.com/node/14)
+
+For more details on the root file system, check out [Linux Systems Administrators Guide](http://www.tldp.org/LDP/sag/html/), specifically the [directory tree overview](http://www.tldp.org/LDP/sag/html/dir-tree-overview.html).
 
 Using the boot container, make a initfs directory.
 ```

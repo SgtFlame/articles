@@ -56,6 +56,13 @@ apt upgrade
 apt install make gcc libncurses5-dev libelf-dev bc busybox grub mkisofs
 ```
 
+Additional packages:
+
+```
+apt install sed binutils build-essential g++ bash patch gzip bzip2 perl tar cpio python unzip rsync wget cvs git mercurial rsync subversion
+```
+
+
 From your boot container, make the kernel.
 
 ```
@@ -210,3 +217,8 @@ cat /proc/partitions
 ```
 
 The cd-rom should be `/dev/sr0`, but if it's not then you should be able to find it in the `/proc/partitions` special file.  *Note that this only shows the major/minor device id's, so you'll have to do `mknod /dev/{dev} b {major} {minor}` to create the device before you can mount it.*
+
+## Going further
+For building more of your system from scratch, check out [BuildRoot](https://buildroot.org/download.html).
+
+(this might require installing bazaar and gcc-multilib)

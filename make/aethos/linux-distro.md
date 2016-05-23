@@ -21,6 +21,11 @@ We'll create a container with Ubuntu Xenial 64 bit OS installed.  The `-n boot` 
 sudo lxc-create -t download -n boot -- -d ubuntu -r xenial -a amd64
 ```
 
+Alternatively, if you're doing this on an NVidia TK1, use this command for the appropriate architecture.
+```
+sudo lxc-create -t download -n boot -- -d ubuntu -r xenial -a armhf
+```
+
 This creates a container with the files located at `/var/lib/lxc/boot/` (but it's not accessible using a less privileged user, so you may need to `sudo su` first.)
 
 At this point I make sure to have a couple of terminals open.  One is the "boot" terminal and the other is the "host" terminal.

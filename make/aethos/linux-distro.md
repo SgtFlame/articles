@@ -1,6 +1,12 @@
 # Notes on making a Linux Distro
 
+These notes are the precursor to (and subsequently deprecated by) [AethOS build / dist](https://github.com/aethosio/aethos-build-dist) project.  If you want to make  your own Linux Distro, you can follow along these steps (although they're not 100% complete and lacking in some details), or you can use ABD as a template, which is actually quite a lot easier.
+
 In addition to the links I've provided here, [Linux from Scratch](http://www.linuxfromscratch.org/index.html) is also a great resource for creating your own system.  LFS focuses on building everything from source, which is a great way to do it.  My instructions don't build everything from scratch.
+
+## System Requirements
+
+Although your target system where you will be installing your new distro can be whatever you need (by customizing what is part of the distro), the build machine needs a minimum of 4GB of RAM and 32GB of hard disk space.  If you have less than 16 GB of RAM then you need a minimum of 16 GB of swap space. (this is a LLVM / Clang requirement; if you stick with only GCC then you can get away with less).
 
 ## Tools
 
@@ -224,6 +230,6 @@ cat /proc/partitions
 The cd-rom should be `/dev/sr0`, but if it's not then you should be able to find it in the `/proc/partitions` special file.  *Note that this only shows the major/minor device id's, so you'll have to do `mknod /dev/{dev} b {major} {minor}` to create the device before you can mount it.*
 
 ## Going further
-For building more of your system from scratch, check out [BuildRoot](https://buildroot.org/download.html).
+For building more of your system from scratch, check out [BuildRoot](https://buildroot.org/download.html).  BuildRoot is what I used to construct [AethOS build / dist](https://github.com/aethosio/aethos-build-dist), so it might be helpful to look at both and utilize what you need.
 
-(this might require installing bazaar and gcc-multilib)
+An advantage of using ABD (even if only as a template) is that it shows you how to add more packages without having to fork BuildRoot, which is a common mistake among BuildRoot users.

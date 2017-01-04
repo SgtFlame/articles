@@ -8,9 +8,12 @@ Although articles can belong to more than one tag, the main tag will be used as 
 * grow - Growing plants, fruits, vegetables
 * raise - Raising animals
 * make - Making things
-* eat - Eating
+* eat - Eating and Cooking
 * live - General living
 * pegs - Politics, Economics, Government, Society
+* move - Exercise and other physical activities
+* sit - Relaxing, meditating, thinking
+* write - Writing, blogging, and otherwise sharing information / entertainment
 
 ## Secondary tags
 

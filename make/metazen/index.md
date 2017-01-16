@@ -12,8 +12,4 @@ You can import the data model from an existing database, import portions of sour
 
 Do you love some piece of open source software, but you can't get passed the language it uses or some other architectural / design choices the original developers made.  Forking or rewriting take a tremendous amount of effort, and then you don't get the benefit of the continuing development from the original project.
 
-With Meta Zen, you can have your cake and eat it too!
-
 By creating specific refactoring, source manipulation, and generation rules, you can continue receiving source drops from a vendor and export an updated version of your app, complete with all of your refactoring, language choice and other improvements.
-
-Pretty nifty, eh?
